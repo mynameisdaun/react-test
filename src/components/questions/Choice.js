@@ -1,8 +1,13 @@
 import React from 'react';
 
-const Choice = ({choice}) => {
+const Choice = ({choice, onSelectChoice}) => {
+
+	const onClickHandler = (event) => {
+		onSelectChoice(event.target.textContent);
+	}
+
 	return (
-		<div>{choice}</div>
+		<div onClick={onClickHandler}>{choice}</div>
 	)
 }
 

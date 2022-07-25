@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import Choice from "./Choice";
 
-const Choices = ({choices}) => {
+const Choices = ({choices, onSelectChoice}) => {
 	return (
 		<>
-			{choices.map((choice, index) => <Choice key={choice+index} choice={choice}/>)}
+			{choices.map((choice,index) => <Choice key={index} choice={choice} onSelectChoice={onSelectChoice} />)}
 		</>
 	)
 }
