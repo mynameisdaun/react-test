@@ -17,9 +17,9 @@ const Questions = ({questions}) => {
 	const onSelectChoice = (choice) => {
 		setAnswers((prev) => [...prev,
 			{
-				isCorrect: questions[questionNumber].answer === choice,
-				id: questions[questionNumber].id,
-				choice: choice
+				'isCorrect': questions[questionNumber].answer === choice,
+				'id': questions[questionNumber].id,
+				'choice': choice
 			}]);
 		moveToNextQuestion();
 	}

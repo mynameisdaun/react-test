@@ -1,3 +1,4 @@
+//TODO: 도메인으로 변경한다
 const questions = [
 	{
 		wordId: '1',
@@ -21,4 +22,16 @@ const questions = [
 	}
 ];
 
-export default questions
+const answers = [
+	{
+		wordId:'1',
+		isCorrect:true,
+	},
+	{
+		wordId:'2',
+		isCorrect:false,
+	}
+]
+
+export default questions;
+export {answers};
