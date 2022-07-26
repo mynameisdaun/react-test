@@ -1,41 +1,63 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import Word from "./Word";
 import Choices from "./Choices";
+import {useNavigate} from "react-router-dom";
 
-const Questions = ({questions}) => {
-	const [questionNumber, setQuestionNumber] = useState(0);
-	const [answers, setAnswers] = useState([]);
+
+const Quizs = (props) => {
+	const [quizNumber, setQuizNumber] = useState(0);
+	const [quizs, setQuizs] = useState(props.quizs);
+	const quizComplete = quizNumber >= quizs.length - 1;
+	let navigate = useNavigate();
 
 	const moveToNextQuestion = useCallback(
 		() => {
-			if (questionNumber < questions.length - 1) {
-				setQuestionNumber((prev) => prev + 1);
-			}
-		}, [questions, questionNumber]);
-
+			setQuizNumber((prev) => prev + 1);
+		}, []);
 
 	const onSelectChoice = (choice) => {
-		setAnswers((prev) => [...prev,
-			{
-				'isCorrect': questions[questionNumber].answer === choice,
-				'id': questions[questionNumber].id,
-				'choice': choice
-			}]);
+		const userAnswerSaved = [...quizs];
+		userAnswerSaved[quizNumber].saveUserChoice(choice);
+		setQuizs(userAnswerSaved);
 		moveToNextQuestion();
+	}
+	//TODO: 결과는 서버로 저장되어야 한다
+	const handleClick = () => {
+		const passedQuiz = [...quizs];
+		console.log(passedQuiz);
+
+		navigate("/results", {state: {quizs : passedQuiz}});
 	}
 
 	useEffect(() => {
-		const interval = setInterval(() => moveToNextQuestion(), 3000);
-		return () => clearInterval(interval);
-	}, [moveToNextQuestion]);
+		let interval;
+		if(!quizComplete) {
+			interval = setInterval(() => moveToNextQuestion(), 300);
+		}
+		return () => {
+			if(!quizComplete) {
+				clearInterval(interval);
+			}
+		}
+	}, [quizComplete, moveToNextQuestion]);
 
 	return (
 		<>
-			<p>{questionNumber}</p>
-			<Word word={questions[questionNumber].word}/>
-			<Choices choices={questions[questionNumber].choices} onSelectChoice={onSelectChoice}/>
+			{
+				!quizComplete &&
+				<>
+					<p>{quizNumber}</p>
+					<Word word={quizs[quizNumber].word} qType={quizs[quizNumber].type}/>
+					<Choices choices={quizs[quizNumber].createChoices()} onSelectChoice={onSelectChoice}
+					         qType={quizs[quizNumber].type}/>
+				</>
+			}
+			{
+				quizComplete &&
+				<button onClick={handleClick}>결과보러가기!</button>
+			}
 		</>
 	)
 }
 
-export default Questions;
+export default Quizs;

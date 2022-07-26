@@ -1,13 +1,15 @@
 import React from 'react';
+import {quizType} from "../../model/quiz";
 
-const Choice = ({choice, onSelectChoice}) => {
+const Choice = ({choice, qType, onSelectChoice}) => {
+	const displayedChoice = qType === quizType.englishToKorean ? choice.korean : choice.english;
 
 	const onClickHandler = (event) => {
-		onSelectChoice(event.target.textContent);
+		onSelectChoice(choice.wordId);
 	}
 
 	return (
-		<div onClick={onClickHandler}>{choice}</div>
+		<div onClick={onClickHandler}>{displayedChoice}</div>
 	)
 }
 
