@@ -9,12 +9,11 @@ const Choice = ({choice, qType, onSelectChoice}) => {
 	const displayedChoice = qType === quizType.englishToKorean ? choice.korean : choice.english;
 
 	const clickHandler = (event) => {
-		console.log("just clicked!");
 		onSelectChoice(choice.wordId);
 	}
 	return (
 		<Box height='7.5vh'
-		     width='40vw'
+		     width='inherit'
 		     display='flex'
 		     justifyContent='center'
 		     onClick={clickHandler}
