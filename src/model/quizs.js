@@ -1,9 +1,10 @@
 class Quizs {
+	constructor(quizs) {
+		this._quizs = quizs;
+	}
 	get quizs() {
 		return this._quizs;
 	}
-	constructor(quizs) {
-
-		this._quizs = quizs;
-	}
 }
+
+export default Quizs;

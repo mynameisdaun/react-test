@@ -10,3 +10,5 @@ class Workbook {
 		return this._quizs;
 	}
 }
+
+export default Workbook;
