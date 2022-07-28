@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 
 const Timer = (props) => {
 	//TODO: 시간 하드코딩으로 된거 개선할 수 있을까?
-	const interval = 1000;
+	const interval = 100;
 	const [second, setSecond] = useState(props.timerConfig.time);
 	const [timerInterval, setTimerInterval] = useState(0);
 

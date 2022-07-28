@@ -7,9 +7,10 @@ import Progress from "./Progress";
 
 
 const Quizs = (props) => {
+	const timeForQuiz=0.9;
 	const [quizNumber, setQuizNumber] = useState(0);
 	const [quizs, setQuizs] = useState(props.quizs.quizs);
-	const [timerConfig, setTimerConfig] = useState({play: true, time: 5});
+	const [timerConfig, setTimerConfig] = useState({play: true, time: timeForQuiz});
 	const [quizComplete, setQuizComplete] = useState(false);
 
 	const moveToNextQuestion = () => {
@@ -19,13 +20,13 @@ const Quizs = (props) => {
 		}
 		setQuizNumber((prev) => prev + 1);
 		setTimerConfig((prev) => {
-			return {...prev, play: true, time: 5}
+			return {...prev, play: true, time: timeForQuiz}
 		});
 	}
 
 	const onSelectChoice = (choice) => {
 		setTimerConfig(prev => {
-			return {play: false, time: 5}
+			return {play: false, time: timeForQuiz}
 		});
 		setQuizNumber((prev) => prev + 1);
 		moveToNextQuestion();
@@ -33,7 +34,7 @@ const Quizs = (props) => {
 
 	const onTimeOut = () => {
 		setTimerConfig(prev=> {
-			return {play: false, time: 5}
+			return {play: false, time: timeForQuiz}
 		});
 		moveToNextQuestion();
 	}

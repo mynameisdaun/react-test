@@ -14,6 +14,7 @@ const Choice = ({choice, qType, onSelectChoice}) => {
 	}
 	return (
 		<Box height='7.5vh'
+		     width='40vw'
 		     display='flex'
 		     justifyContent='center'
 		     onClick={clickHandler}
