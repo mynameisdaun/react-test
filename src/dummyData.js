@@ -36,6 +36,18 @@ const DUMMY_QUIZS = new Quizs([
 	new Quiz(calibre, quizType.englishToKorean, createDummyWrongAnswers(calibre)),
 ]);
 
+const DUMMY_QUIZS_WITH_USER_ANSWER = new Quizs([
+	new Quiz(justify, quizType.englishToKorean, createDummyWrongAnswers(justify)).saveUserChoice(Math.floor(Math.random() * 3) + 1),
+	new Quiz(accurate, quizType.englishToKorean, createDummyWrongAnswers(accurate)).saveUserChoice(Math.floor(Math.random() * 3) + 1),
+	new Quiz(capable, quizType.englishToKorean, createDummyWrongAnswers(capable)).saveUserChoice(Math.floor(Math.random() * 3) + 1),
+	new Quiz(personnel, quizType.englishToKorean, createDummyWrongAnswers(personnel)).saveUserChoice(Math.floor(Math.random() * 3) + 1),
+	new Quiz(capacity, quizType.englishToKorean, createDummyWrongAnswers(capacity)).saveUserChoice(Math.floor(Math.random() * 3) + 1),
+	new Quiz(conscious, quizType.englishToKorean, createDummyWrongAnswers(conscious)).saveUserChoice(Math.floor(Math.random() * 3) + 1),
+	new Quiz(damp, quizType.englishToKorean, createDummyWrongAnswers(damp)).saveUserChoice(Math.floor(Math.random() * 3) + 1),
+	new Quiz(brief, quizType.englishToKorean, createDummyWrongAnswers(brief)).saveUserChoice(Math.floor(Math.random() * 3) + 1),
+	new Quiz(calibre, quizType.englishToKorean, createDummyWrongAnswers(calibre)).saveUserChoice(Math.floor(Math.random() * 3) + 1),
+]);
+
 const DUMMY_WORKBOOKS = new Workbook('공무원 9급 준비 필수 영단어', DUMMY_QUIZS);
 
-export {DUMMY_WORKBOOKS, DUMMY_QUIZS};
+export {DUMMY_WORKBOOKS, DUMMY_QUIZS, DUMMY_QUIZS_WITH_USER_ANSWER};
