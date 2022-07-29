@@ -13,9 +13,9 @@ const conscious = new Word(6, 'conscious', '의식하는, 자각하는');
 const damp = new Word(7, 'damp', '축축한');
 const brief = new Word(8, 'brief', '간략한');
 const calibre = new Word(9, 'calibre','역량');
+const words = [justify, accurate, capable, personnel, capacity, conscious, damp, brief, calibre];
 
 const createDummyWrongAnswers = (word) => {
-	const words = [justify, accurate, capable, personnel, capacity, conscious, damp, brief, calibre];
 	const wrongAnswers = words.filter(w => w.wordId !== word.wordId);
 	for (let i = wrongAnswers.length - 1; i > 0; i--) {
 		let j = Math.floor(Math.random() * (i + 1));
@@ -36,18 +36,8 @@ const DUMMY_QUIZS = new Quizs([
 	new Quiz(calibre, quizType.englishToKorean, createDummyWrongAnswers(calibre)),
 ]);
 
-const DUMMY_QUIZS_WITH_USER_ANSWER = new Quizs([
-	new Quiz(justify, quizType.englishToKorean, createDummyWrongAnswers(justify)).saveUserChoice(Math.floor(Math.random() * 3) + 1),
-	new Quiz(accurate, quizType.englishToKorean, createDummyWrongAnswers(accurate)).saveUserChoice(Math.floor(Math.random() * 3) + 1),
-	new Quiz(capable, quizType.englishToKorean, createDummyWrongAnswers(capable)).saveUserChoice(Math.floor(Math.random() * 3) + 1),
-	new Quiz(personnel, quizType.englishToKorean, createDummyWrongAnswers(personnel)).saveUserChoice(Math.floor(Math.random() * 3) + 1),
-	new Quiz(capacity, quizType.englishToKorean, createDummyWrongAnswers(capacity)).saveUserChoice(Math.floor(Math.random() * 3) + 1),
-	new Quiz(conscious, quizType.englishToKorean, createDummyWrongAnswers(conscious)).saveUserChoice(Math.floor(Math.random() * 3) + 1),
-	new Quiz(damp, quizType.englishToKorean, createDummyWrongAnswers(damp)).saveUserChoice(Math.floor(Math.random() * 3) + 1),
-	new Quiz(brief, quizType.englishToKorean, createDummyWrongAnswers(brief)).saveUserChoice(Math.floor(Math.random() * 3) + 1),
-	new Quiz(calibre, quizType.englishToKorean, createDummyWrongAnswers(calibre)).saveUserChoice(Math.floor(Math.random() * 3) + 1),
-]);
-
+const DUMMY_QUIZS_WITH_USER_ANSWER = new Quizs(Array.from(DUMMY_QUIZS.quizs));
+DUMMY_QUIZS_WITH_USER_ANSWER.quizs.forEach(quiz=>quiz.saveUserChoice([quiz.word,...quiz.wrongChoices][Math.floor(Math.random() * 4)]));
 const DUMMY_WORKBOOKS = new Workbook('공무원 9급 준비 필수 영단어', DUMMY_QUIZS);
 
 export {DUMMY_WORKBOOKS, DUMMY_QUIZS, DUMMY_QUIZS_WITH_USER_ANSWER};

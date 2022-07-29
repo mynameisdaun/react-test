@@ -1,5 +1,6 @@
-const wordSize = 50;
-const choiceSize = 20;
+const quizWordSize = 50;
+const quizChoiceSize = 20;
+const resultEnglishWordSize = 25;
+const resultKoreanWordSize = 15;
 
-
-export {wordSize, choiceSize};
+export {quizWordSize, quizChoiceSize, resultEnglishWordSize, resultKoreanWordSize};

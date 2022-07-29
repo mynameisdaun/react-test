@@ -1,25 +1,52 @@
 import React from 'react';
-import {useLocation} from "react-router-dom";
+import {DUMMY_QUIZS_WITH_USER_ANSWER} from "../../dummyData";
+import {Box, Divider, ListItem, ListItemIcon, ListItemText} from "@mui/material";
+import Typography from "@mui/material/Typography";
+import {quizChoiceSize, resultEnglishWordSize, resultKoreanWordSize} from "../../style/style-guide";
+import List from "@mui/material/List";
+import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined';
+import CheckBoxOutlineBlankOutlinedIcon from '@mui/icons-material/CheckBoxOutlineBlankOutlined';
+import ListItemButton from "@mui/material/ListItemButton";
 
 const Results = () => {
-	//결과는서버에서호출되어야한다
-	const location = useLocation();
-	console.log(location);
-	const quizs = location.state.quizs;
+	//TODO: 결과는서버에서호출되어야한다
+	const quizs = DUMMY_QUIZS_WITH_USER_ANSWER;
+	const englishWordColor = (isCorrect) => isCorrect ? 'black' : 'red';
 	return (
-		<>
-			<p>ResultsPage</p>
-			<p>틀린문제를 복습하세요!</p>
-			<div>
-				{quizs.map(
-					quiz => <div key={quiz.word.wordId}>
-								<div>{quiz.word.english}</div>
-								<div>{quiz.word.korean}</div>
-								<div>{`정답여부 : ${quiz.isCorrect()}`}</div>
-							</div>)
-				}
-			</div>
-		</>
+		<Box height='90vh' width='95vw' display='flex' flexDirection='column' justifyContent='starts'
+		     border={'3px solid black'}>
+			<Box height='20vh' border={'3px solid red'}>
+				<p>대쉬보드..어떤 내용을 넣을까?</p>
+				<Typography>{`정답률: ${Number.parseFloat(quizs.calculateAnswerRate()).toFixed(2) * 100}%`}</Typography>
+			</Box>
+			<Box height='70vh' border={'3px solid blue'}>
+				<List>
+					{quizs.quizs.map(
+						quiz =>
+							<Box key={quiz.word.wordId}>
+								<ListItem>
+									<ListItemButton>
+										<ListItemText primary={quiz.word.english}
+										              primaryTypographyProps={
+											              {
+												              color: englishWordColor(quiz.isCorrect()),
+												              fontSize: resultEnglishWordSize,
+												              marginBottom: 1
+											              }}
+										              secondary={quiz.word.korean}
+										              secondaryTypographyProps={
+											              {
+												              fontSize: resultKoreanWordSize,
+											              }}
+										/>
+									</ListItemButton>
+								</ListItem>
+								<Divider/>
+							</Box>
+					)}
+				</List>
+			</Box>
+		</Box>
 	)
 }
 

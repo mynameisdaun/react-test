@@ -18,17 +18,9 @@ const theme = createTheme();
 function App() {
 	return (
 		<ThemeProvider theme={theme}>
-			<Box
-				height='100vh'
-				alignItems='stretch'
-				display='flex'
-				flexDirection='column'
-			>
+			<Box height='100vh' alignItems='stretch' display='flex' flexDirection='column'>
 				{/* header */}
-				<Box
-					height='10vh'
-					display='flex'
-					alignItems='center'
+				<Box height='10vh' display='flex' alignItems='center'
 					justifyContent='center'
 					alignContent='center'
 					sx={{
@@ -56,10 +48,7 @@ function App() {
 					</Box>
 				</Box>
 				{/* main */}
-				<Box
-					display='flex'
-					justifyContent='center'
-				>
+				<Box display='flex' justifyContent='center'>
 					<Routes>
 						<Route path='/results' element={<Results/>}/>
 						<Route path='/quizs' element={<Quizs quizs={DUMMY_QUIZS}/>}/>

@@ -3,7 +3,7 @@ class Quiz {
 		validateQuiz(word, type, wrongChoices);
 		this._word = word;                                  /* 단어 */
 		this._type = type;                                  /* 문제 유형 */
-		this._wrongChoice = wrongChoices;                   /* 잘못된 선택지들 */
+		this._wrongChoices = wrongChoices;                   /* 잘못된 선택지들 */
 		this._userChoice = {}                              /* 유저의 선택지 */
 	}
 
@@ -15,12 +15,16 @@ class Quiz {
 		return this._type;
 	}
 
-	get wrongChoice() {
-		return this._wrongChoice;
+	get wrongChoices() {
+		return this._wrongChoices;
+	}
+
+	get userChoice() {
+
 	}
 
 	createChoices = () => {
-		return this._shuffle([...this._wrongChoice, this._word]);
+		return this._shuffle([...this._wrongChoices, this._word]);
 	}
 
 	isCorrect = () => {
@@ -48,7 +52,7 @@ Object.freeze(quizType);
 //TODO: validation 이렇게 하는거 맞나?
 const validateQuiz = (word, type, wrongChoice) => {
 	//TODO: 최소 문제 개수 관리 어떻게 하면 좋을까?
-	const minimumWrongAnswerNumber = 2;
+	const minimumWrongAnswerNumber = 3;
 	if (!word) {
 		throw new Error('단어는 질문의 필수 요소 입니다.');
 	}

@@ -1,7 +1,7 @@
 import React from 'react';
 import {quizType} from "../../model/quiz";
 import Typography from "@mui/material/Typography";
-import {wordSize} from "../../style/style-guide";
+import {quizWordSize} from "../../style/style-guide";
 import {Box} from "@mui/material";
 
 const Word = ({word, qType}) => {
@@ -11,7 +11,7 @@ const Word = ({word, qType}) => {
 			display:'flex',
 			justifyContent:'center'
 		}}>
-			<Typography sx={{ fontSize: wordSize }} color="text.primary" >
+			<Typography sx={{ fontSize: quizWordSize }} color="text.primary" >
 				{displayedWord}
 			</Typography>
 		</Box>
