@@ -6,7 +6,7 @@ import {Route, Routes} from "react-router-dom";
 import WorkBooks from "./components/workbooks/WorkBooks";
 import MyPage from "./components/mypage/MyPage";
 import SignIn from "./components/auth/Signin";
-import MainNavigation from "./components/nav/MainNavigation";
+import MenuDrawer from "./components/nav/MenuDrawer";
 import {createTheme} from "@mui/material/styles";
 import {Box, Grid, ThemeProvider} from "@mui/material";
 import * as React from "react";
@@ -20,29 +20,18 @@ function App() {
 		<ThemeProvider theme={theme}>
 			<Box height='100vh' alignItems='stretch' display='flex' flexDirection='column'>
 				{/* header */}
-				<Box height='10vh' display='flex' alignItems='center'
-					justifyContent='center'
-					alignContent='center'
-					sx={{
-						backgroundColor:'white'
-					}}
+				<Box height='10vh' display='flex' alignItems='center' justifyContent='center' alignContent='center'
+				     sx={{backgroundColor: 'white'}}
 				>
-					<Box
-						width='10vw'
-						alignSelf='center'
-					>
-						<MainNavigation/>
+					{/* menu drawer*/}
+					<Box width='10vw' alignSelf='center'>
+						<MenuDrawer/>
 					</Box>
-					<Box
-						width='80vw'
-					>
-					</Box>
-					<Box
-						width='10vw'
-						display='flex'
-						justifyContent='center'
-					>
-						<Badge color="primary">
+					{/* name space */}
+					<Box width='80vw'/>
+					{/* notification */}
+					<Box width='10vw' display='flex' justifyContent='center'>
+						<Badge color='primary'>
 							<NotificationsNoneRoundedIcon/>
 						</Badge>
 					</Box>
@@ -52,15 +41,15 @@ function App() {
 					<Routes>
 						<Route path='/results' element={<Results/>}/>
 						<Route path='/quizs' element={<Quizs quizs={DUMMY_QUIZS}/>}/>
-						<Route path='/workbooks' element={<WorkBooks/>}/>
-						<Route path={'/:userId'} element={<MyPage/>}/>
-						<Route path='/' element={<SignIn/>}/>
+						<Route path='/sign-in' element={<SignIn/>}/>
+						<Route path='/:userId/workbooks' element={<WorkBooks/>}/>
+						<Route path='/:userId' element={<MyPage/>}/>
+						<Route path='/' element={<WorkBooks/>}/>
 					</Routes>
 				</Box>
 			</Box>
 		</ThemeProvider>
-	)
-		;
+	);
 }
 
 export default App;
