@@ -5,21 +5,22 @@ import {Box, Divider, ListItem, ListItemAvatar, ListItemText} from "@mui/materia
 import ListItemButton from "@mui/material/ListItemButton";
 import Avatar from "@mui/material/Avatar";
 import {workBookAuthorSize, workBookCreatedAtSize, workBookNameSize} from "../../style/style-guide";
+import AdBoard from "../ad/AdBoard";
 
 const WorkBooks = () => {
 	const workbooks = DUMMY_WORKBOOKS;
+	const clickHandler = () => {
+
+	}
+
+
 	return (
 		<Box height='90vh' width='95vw'>
-			<Box height='20vh'
-			     border={'3px solid blue'}
-			>
-				{/*//TODO: 광고 보드로 사용하면 제격이겠다!*/}
-				<p>광고보드, 일괄적으로 처리해야지!</p>
-			</Box>
+			<AdBoard />
 			<Box height='70vh'>
 				<List>
 					{workbooks.map(workbook =>
-						<Box>
+						<Box key={workbook.workBookId} onClick={clickHandler}>
 							<ListItem>
 								<ListItemButton>
 									<ListItemAvatar>
