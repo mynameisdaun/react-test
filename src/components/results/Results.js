@@ -1,11 +1,9 @@
 import React from 'react';
 import {DUMMY_QUIZS_WITH_USER_ANSWER} from "../../dummyData";
-import {Box, Divider, ListItem, ListItemIcon, ListItemText} from "@mui/material";
+import {Box, Divider, ListItem, ListItemText} from "@mui/material";
 import Typography from "@mui/material/Typography";
-import {quizChoiceSize, resultEnglishWordSize, resultKoreanWordSize} from "../../style/style-guide";
+import {resultEnglishWordSize, resultKoreanWordSize} from "../../style/style-guide";
 import List from "@mui/material/List";
-import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined';
-import CheckBoxOutlineBlankOutlinedIcon from '@mui/icons-material/CheckBoxOutlineBlankOutlined';
 import ListItemButton from "@mui/material/ListItemButton";
 
 const Results = () => {
