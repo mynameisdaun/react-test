@@ -5,6 +5,7 @@ import Typography from "@mui/material/Typography";
 const AdBoard = () => {
 	return (
 		<Box height='20vh'
+		     width='95vw'
 		     border={'3px solid blue'}
 		     alignItems='center'
 		     justifyContent='center'

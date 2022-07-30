@@ -12,6 +12,7 @@ import {Box, Grid, ThemeProvider} from "@mui/material";
 import * as React from "react";
 import Badge from "@mui/material/Badge";
 import NotificationsNoneRoundedIcon from '@mui/icons-material/NotificationsNoneRounded';
+import WorkBookDetail from "./components/workbooks/WorkBookDetail";
 
 const theme = createTheme();
 
@@ -43,6 +44,7 @@ function App() {
 						<Route path='/quizs' element={<Quizs quizs={DUMMY_QUIZS}/>}/>
 						<Route path='/sign-in' element={<SignIn/>}/>
 						<Route path='/:userId/workbooks' element={<WorkBooks/>}/>
+						<Route path='/:userId/workbooks/:workBookId' element={<WorkBookDetail />}/>
 						<Route path='/:userId' element={<MyPage/>}/>
 						<Route path='/' element={<WorkBooks/>}/>
 					</Routes>

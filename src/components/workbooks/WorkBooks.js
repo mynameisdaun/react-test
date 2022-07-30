@@ -6,21 +6,24 @@ import ListItemButton from "@mui/material/ListItemButton";
 import Avatar from "@mui/material/Avatar";
 import {workBookAuthorSize, workBookCreatedAtSize, workBookNameSize} from "../../style/style-guide";
 import AdBoard from "../ad/AdBoard";
+import {useNavigate} from "react-router-dom";
+import {fakeUser} from "../../fakeAuth";
 
 const WorkBooks = () => {
+	const user = fakeUser;
 	const workbooks = DUMMY_WORKBOOKS;
-	const clickHandler = () => {
-
+	const navigate = useNavigate();
+	const clickHandler = (workbook) => {
+		navigate(`/${user.nickName}/workbooks/${workbook.workBookId}`, {state : workbook});;
 	}
-
 
 	return (
 		<Box height='90vh' width='95vw'>
-			<AdBoard />
+			<AdBoard/>
 			<Box height='70vh'>
 				<List>
 					{workbooks.map(workbook =>
-						<Box key={workbook.workBookId} onClick={clickHandler}>
+						<Box key={workbook.workBookId} onClick={() => clickHandler(workbook)}>
 							<ListItem>
 								<ListItemButton>
 									<ListItemAvatar>
