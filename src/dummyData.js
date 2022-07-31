@@ -23,8 +23,40 @@ const createDummyWrongAnswers = (word) => {
 	}
 	return wrongAnswers.slice(0, 3);
 }
-
-const DUMMY_QUIZS = new Quizs([
+const chapter1 = new Quizs([
+	new Quiz(justify, quizType.englishToKorean, createDummyWrongAnswers(justify)),
+	new Quiz(accurate, quizType.englishToKorean, createDummyWrongAnswers(accurate)),
+	new Quiz(capable, quizType.englishToKorean, createDummyWrongAnswers(capable)),
+	new Quiz(personnel, quizType.englishToKorean, createDummyWrongAnswers(personnel)),
+	new Quiz(capacity, quizType.englishToKorean, createDummyWrongAnswers(capacity)),
+	new Quiz(conscious, quizType.englishToKorean, createDummyWrongAnswers(conscious)),
+	new Quiz(damp, quizType.englishToKorean, createDummyWrongAnswers(damp)),
+	new Quiz(brief, quizType.englishToKorean, createDummyWrongAnswers(brief)),
+	new Quiz(calibre, quizType.englishToKorean, createDummyWrongAnswers(calibre)),
+]);
+const chapter2 = new Quizs([
+	new Quiz(justify, quizType.englishToKorean, createDummyWrongAnswers(justify)),
+	new Quiz(accurate, quizType.englishToKorean, createDummyWrongAnswers(accurate)),
+	new Quiz(capable, quizType.englishToKorean, createDummyWrongAnswers(capable)),
+	new Quiz(personnel, quizType.englishToKorean, createDummyWrongAnswers(personnel)),
+	new Quiz(capacity, quizType.englishToKorean, createDummyWrongAnswers(capacity)),
+	new Quiz(conscious, quizType.englishToKorean, createDummyWrongAnswers(conscious)),
+	new Quiz(damp, quizType.englishToKorean, createDummyWrongAnswers(damp)),
+	new Quiz(brief, quizType.englishToKorean, createDummyWrongAnswers(brief)),
+	new Quiz(calibre, quizType.englishToKorean, createDummyWrongAnswers(calibre)),
+]);
+const chapter3 = new Quizs([
+	new Quiz(justify, quizType.englishToKorean, createDummyWrongAnswers(justify)),
+	new Quiz(accurate, quizType.englishToKorean, createDummyWrongAnswers(accurate)),
+	new Quiz(capable, quizType.englishToKorean, createDummyWrongAnswers(capable)),
+	new Quiz(personnel, quizType.englishToKorean, createDummyWrongAnswers(personnel)),
+	new Quiz(capacity, quizType.englishToKorean, createDummyWrongAnswers(capacity)),
+	new Quiz(conscious, quizType.englishToKorean, createDummyWrongAnswers(conscious)),
+	new Quiz(damp, quizType.englishToKorean, createDummyWrongAnswers(damp)),
+	new Quiz(brief, quizType.englishToKorean, createDummyWrongAnswers(brief)),
+	new Quiz(calibre, quizType.englishToKorean, createDummyWrongAnswers(calibre)),
+]);
+const chapter4 = new Quizs([
 	new Quiz(justify, quizType.englishToKorean, createDummyWrongAnswers(justify)),
 	new Quiz(accurate, quizType.englishToKorean, createDummyWrongAnswers(accurate)),
 	new Quiz(capable, quizType.englishToKorean, createDummyWrongAnswers(capable)),
@@ -36,14 +68,19 @@ const DUMMY_QUIZS = new Quizs([
 	new Quiz(calibre, quizType.englishToKorean, createDummyWrongAnswers(calibre)),
 ]);
 
-const DUMMY_QUIZS_WITH_USER_ANSWER = new Quizs(Array.from(DUMMY_QUIZS.quizs));
+const DUMMY_QUIZS_WITH_USER_ANSWER = new Quizs(Array.from(chapter1.quizs));
 DUMMY_QUIZS_WITH_USER_ANSWER.quizs.forEach(quiz => quiz.saveUserChoice([quiz.word, ...quiz.wrongChoices][Math.floor(Math.random() * 4)]));
 
+const DUMMY_WORKBOOK_1 = new Workbook(1, '해커스 토익 빈출', chapter1, '정찬울', Date.now(), Date.now(), '/assets/images/hackers_toeic.jpeg', [chapter1, chapter2, chapter3, chapter4])
+const DUMMY_WORKBOOK_2 = new Workbook(2, '경선식 영단어', chapter1, '정다운', Date.now(), Date.now(), '/assets/images/kyeong.jpeg', [chapter1, chapter2, chapter3, chapter4])
+const DUMMY_WORKBOOK_3 = new Workbook(3, '어휘 끝', chapter1, '최해미', Date.now(), Date.now(), '/assets/images/word_done.jpeg', [chapter1, chapter2, chapter3, chapter4])
+const DUMMY_WORKBOOK_4 = new Workbook(4, '워드 마스터', chapter1, '송주하', Date.now(), Date.now(), '/assets/images/word_master.jpeg', [chapter1, chapter2, chapter3, chapter4]);
+
 const DUMMY_WORKBOOKS = [
-	new Workbook(1, '해커스 토익 빈출', DUMMY_QUIZS, '정찬울', Date.now(), Date.now(), '/assets/images/hackers_toeic.jpeg'),
-	new Workbook(2, '경선식 영단어', DUMMY_QUIZS, '정다운', Date.now(), Date.now(), '/assets/images/kyeong.jpeg'),
-	new Workbook(3, '어휘 끝', DUMMY_QUIZS, '최해미', Date.now(), Date.now(), '/assets/images/word_done.jpeg'),
-	new Workbook(4, '워드 마스터', DUMMY_QUIZS, '송주하', Date.now(), Date.now(), '/assets/images/word_master.jpeg')
+	DUMMY_WORKBOOK_1,
+	DUMMY_WORKBOOK_2,
+	DUMMY_WORKBOOK_3,
+	DUMMY_WORKBOOK_4
 ];
 
-export {DUMMY_WORKBOOKS, DUMMY_QUIZS, DUMMY_QUIZS_WITH_USER_ANSWER};
+export {DUMMY_WORKBOOKS, chapter1, DUMMY_QUIZS_WITH_USER_ANSWER, DUMMY_WORKBOOK_1};
