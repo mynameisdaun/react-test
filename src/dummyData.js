@@ -23,7 +23,7 @@ const createDummyWrongAnswers = (word) => {
 	}
 	return wrongAnswers.slice(0, 3);
 }
-const chapter1 = new Quizs([
+const chapter1 = new Quizs('day 1', [
 	new Quiz(justify, quizType.englishToKorean, createDummyWrongAnswers(justify)),
 	new Quiz(accurate, quizType.englishToKorean, createDummyWrongAnswers(accurate)),
 	new Quiz(capable, quizType.englishToKorean, createDummyWrongAnswers(capable)),
@@ -34,7 +34,7 @@ const chapter1 = new Quizs([
 	new Quiz(brief, quizType.englishToKorean, createDummyWrongAnswers(brief)),
 	new Quiz(calibre, quizType.englishToKorean, createDummyWrongAnswers(calibre)),
 ]);
-const chapter2 = new Quizs([
+const chapter2 = new Quizs('day 2', [
 	new Quiz(justify, quizType.englishToKorean, createDummyWrongAnswers(justify)),
 	new Quiz(accurate, quizType.englishToKorean, createDummyWrongAnswers(accurate)),
 	new Quiz(capable, quizType.englishToKorean, createDummyWrongAnswers(capable)),
@@ -45,7 +45,7 @@ const chapter2 = new Quizs([
 	new Quiz(brief, quizType.englishToKorean, createDummyWrongAnswers(brief)),
 	new Quiz(calibre, quizType.englishToKorean, createDummyWrongAnswers(calibre)),
 ]);
-const chapter3 = new Quizs([
+const chapter3 = new Quizs('day 3', [
 	new Quiz(justify, quizType.englishToKorean, createDummyWrongAnswers(justify)),
 	new Quiz(accurate, quizType.englishToKorean, createDummyWrongAnswers(accurate)),
 	new Quiz(capable, quizType.englishToKorean, createDummyWrongAnswers(capable)),
@@ -56,7 +56,7 @@ const chapter3 = new Quizs([
 	new Quiz(brief, quizType.englishToKorean, createDummyWrongAnswers(brief)),
 	new Quiz(calibre, quizType.englishToKorean, createDummyWrongAnswers(calibre)),
 ]);
-const chapter4 = new Quizs([
+const chapter4 = new Quizs('day 4', [
 	new Quiz(justify, quizType.englishToKorean, createDummyWrongAnswers(justify)),
 	new Quiz(accurate, quizType.englishToKorean, createDummyWrongAnswers(accurate)),
 	new Quiz(capable, quizType.englishToKorean, createDummyWrongAnswers(capable)),
@@ -68,13 +68,13 @@ const chapter4 = new Quizs([
 	new Quiz(calibre, quizType.englishToKorean, createDummyWrongAnswers(calibre)),
 ]);
 
-const DUMMY_QUIZS_WITH_USER_ANSWER = new Quizs(Array.from(chapter1.quizs));
+const DUMMY_QUIZS_WITH_USER_ANSWER = new Quizs('day 1', Array.from(chapter1.quizs));
 DUMMY_QUIZS_WITH_USER_ANSWER.quizs.forEach(quiz => quiz.saveUserChoice([quiz.word, ...quiz.wrongChoices][Math.floor(Math.random() * 4)]));
 
-const DUMMY_WORKBOOK_1 = new Workbook(1, '해커스 토익 빈출', chapter1, '정찬울', Date.now(), Date.now(), '/assets/images/hackers_toeic.jpeg', [chapter1, chapter2, chapter3, chapter4])
-const DUMMY_WORKBOOK_2 = new Workbook(2, '경선식 영단어', chapter1, '정다운', Date.now(), Date.now(), '/assets/images/kyeong.jpeg', [chapter1, chapter2, chapter3, chapter4])
-const DUMMY_WORKBOOK_3 = new Workbook(3, '어휘 끝', chapter1, '최해미', Date.now(), Date.now(), '/assets/images/word_done.jpeg', [chapter1, chapter2, chapter3, chapter4])
-const DUMMY_WORKBOOK_4 = new Workbook(4, '워드 마스터', chapter1, '송주하', Date.now(), Date.now(), '/assets/images/word_master.jpeg', [chapter1, chapter2, chapter3, chapter4]);
+const DUMMY_WORKBOOK_1 = new Workbook(1, '해커스 토익 빈출',  '정찬울', Date.now(), Date.now(), '/assets/images/hackers_toeic.jpeg', [chapter1, chapter2, chapter3, chapter4])
+const DUMMY_WORKBOOK_2 = new Workbook(2, '경선식 영단어', '정다운', Date.now(), Date.now(), '/assets/images/kyeong.jpeg', [chapter1, chapter2, chapter3, chapter4])
+const DUMMY_WORKBOOK_3 = new Workbook(3, '어휘 끝', '최해미', Date.now(), Date.now(), '/assets/images/word_done.jpeg', [chapter1, chapter2, chapter3, chapter4])
+const DUMMY_WORKBOOK_4 = new Workbook(4, '워드 마스터', '송주하', Date.now(), Date.now(), '/assets/images/word_master.jpeg', [chapter1, chapter2, chapter3, chapter4]);
 
 const DUMMY_WORKBOOKS = [
 	DUMMY_WORKBOOK_1,

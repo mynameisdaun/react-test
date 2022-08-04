@@ -11,19 +11,23 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import {createTheme, ThemeProvider} from '@mui/material/styles';
+import {KAKAO_AUTH_URL} from "./OAuth";
 
 
 const theme = createTheme();
 
 const SignIn = () => {
+
 	const handleSubmit = (event) => {
 		event.preventDefault();
 	};
+	const kakaoLoginHandler = async () => {
+	}
 	return (
 		<ThemeProvider theme={theme}>
 			<Container component="main" maxWidth="xs">
-				<CssBaseline />
+				<CssBaseline/>
 				<Box
 					sx={{
 						marginTop: 8,
@@ -32,13 +36,13 @@ const SignIn = () => {
 						alignItems: 'center',
 					}}
 				>
-					<Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-						<LockOutlinedIcon />
+					<Avatar sx={{m: 1, bgcolor: 'secondary.main'}}>
+						<LockOutlinedIcon/>
 					</Avatar>
 					<Typography component="h1" variant="h5">
 						Sign in
 					</Typography>
-					<Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+					<Box component="form" onSubmit={handleSubmit} noValidate sx={{mt: 1}}>
 						<TextField
 							margin="normal"
 							required
@@ -60,16 +64,19 @@ const SignIn = () => {
 							autoComplete="current-password"
 						/>
 						<FormControlLabel
-							control={<Checkbox value="remember" color="primary" />}
+							control={<Checkbox value="remember" color="primary"/>}
 							label="Remember me"
 						/>
 						<Button
 							type="submit"
 							fullWidth
 							variant="contained"
-							sx={{ mt: 3, mb: 2 }}
+							sx={{mt: 3, mb: 2}}
 						>
 							Sign In
+						</Button>
+						<Button href={KAKAO_AUTH_URL}>
+							<img src="/assets/images/kakao_login/ko/kakao_login_medium_narrow.png" alt="kakao"/>
 						</Button>
 						<Grid container>
 							<Grid item xs>

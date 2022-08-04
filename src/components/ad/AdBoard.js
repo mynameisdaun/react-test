@@ -4,14 +4,14 @@ import Typography from "@mui/material/Typography";
 
 const AdBoard = () => {
 	return (
-		<Box height='20vh'
+		<Box height='10vh'
 		     width='95vw'
 		     border={'3px solid blue'}
 		     alignItems='center'
 		     justifyContent='center'
 		     display='flex'
 		>
-			<Typography color='green' fontSize='8vw'>여기엔 <br/>다양한 광고를 넣겠습니다</Typography>
+			<Typography color='green' fontSize={25}>여기엔 <br/>다양한 광고를 넣겠습니다</Typography>
 		</Box>
 	)
 }

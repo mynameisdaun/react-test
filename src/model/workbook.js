@@ -1,14 +1,14 @@
 //TODO: 표지용, 문제풀이 결과용 등 쓰임새를 세분화하여 최적화 할 수 있을 듯
 class Workbook {
-	constructor(workBookId, name, quizs, author, createdAt, updatedAt, bookCoverImage) {
+	constructor(workBookId, name, author, createdAt, updatedAt, bookCoverImage, quizsList) {
 		//TODO: validate this constructor
 		this._workBookId = workBookId;
 		this._name = name;
-		this._quizs = quizs;
 		this._author = author;
 		this._createdAt = createdAt;
 		this._updatedAt = updatedAt;
 		this._bookCoverImage = bookCoverImage;
+		this._quizsList = quizsList;
 	}
 
 	get workBookId() {
@@ -31,13 +31,14 @@ class Workbook {
 		return this._name;
 	}
 
-	get quizs() {
-		return this._quizs;
-	}
-
 	get bookCoverImage() {
 		return this._bookCoverImage;
 	}
+
+	get quizsList() {
+		return this._quizsList;
+	}
+
 }
 
 export default Workbook;

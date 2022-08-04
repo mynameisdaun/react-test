@@ -16,7 +16,7 @@ const WorkBooks = () => {
 	const clickHandler = (workbook) => {
 		navigate(`/${user.nickName}/workbooks/${workbook.workBookId}`, {state : workbook});;
 	}
-
+	/* 좋아요, 싫어요 등 */
 	return (
 		<Box height='90vh' width='95vw'>
 			<AdBoard/>
