@@ -12,7 +12,7 @@ const KakaoCallBack = () => {
 	useEffect( async () => {
 		console.log(code);
 		await fetch("http://localhost:8080/oauth/kakao/sign-in?code="+code);
-		/*sign in*/
+		/*sign in */
 	}, []);
 }
 
