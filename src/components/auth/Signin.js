@@ -13,17 +13,14 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import {createTheme, ThemeProvider} from '@mui/material/styles';
 import {KAKAO_AUTH_URL} from "./OAuth";
-
-
 const theme = createTheme();
-
 const SignIn = () => {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
 	};
-	const kakaoLoginHandler = async () => {
-	}
+	
+
 	return (
 		<ThemeProvider theme={theme}>
 			<Container component="main" maxWidth="xs">
@@ -74,9 +71,6 @@ const SignIn = () => {
 							sx={{mt: 3, mb: 2}}
 						>
 							Sign In
-						</Button>
-						<Button href={KAKAO_AUTH_URL}>
-							<img src="/assets/images/kakao_login/ko/kakao_login_medium_narrow.png" alt="kakao"/>
 						</Button>
 						<Grid container>
 							<Grid item xs>
